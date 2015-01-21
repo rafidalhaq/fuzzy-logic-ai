@@ -1,0 +1,69 @@
+[System]
+Name='fuzzy'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=25
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Distance'
+Range=[-1 1]
+NumMFs=5
+MF1='Extreme_Left':'trimf',[-1.5 -1 -0.5]
+MF2='Left':'trimf',[-1 -0.5 0]
+MF3='Centre':'trimf',[-0.5 0 0.5]
+MF4='Right':'trimf',[0 0.5 1]
+MF5='Extreme Right':'trimf',[0.5 1 1.5]
+
+[Input2]
+Name='RateOfChange'
+Range=[-1 1]
+NumMFs=5
+MF1='Turning Extreme Left':'trimf',[-1.5 -1 -0.5]
+MF2='Turning Left':'trimf',[-1 -0.5 0]
+MF3='Centre':'trimf',[-0.5 0 0.5]
+MF4='Turning Right':'trimf',[0 0.5 1]
+MF5='Turning Extreme Right':'trimf',[0.5 1 1.5]
+
+[Output1]
+Name='output1'
+Range=[-1 1]
+NumMFs=5
+MF1='Hard Left':'trimf',[-1.5 -1 -0.5]
+MF2='Left':'trimf',[-1 -0.5 0]
+MF3='No Turn':'trimf',[-0.5 0 0.5]
+MF4='Right':'trimf',[0 0.5 1]
+MF5='Hard Right':'trimf',[0.5 1 1.5]
+
+[Rules]
+1 1, 5 (1) : 1
+1 2, 5 (1) : 1
+1 3, 5 (1) : 1
+1 4, 4 (1) : 1
+1 5, 3 (1) : 1
+2 5, 2 (1) : 1
+2 4, 3 (1) : 1
+2 3, 4 (1) : 1
+2 2, 5 (1) : 1
+2 1, 5 (1) : 1
+3 1, 5 (1) : 1
+3 2, 4 (1) : 1
+3 3, 3 (1) : 1
+3 4, 2 (1) : 1
+3 5, 1 (1) : 1
+4 5, 1 (1) : 1
+4 4, 1 (1) : 1
+4 3, 2 (1) : 1
+4 2, 3 (1) : 1
+4 1, 4 (1) : 1
+5 1, 3 (1) : 1
+5 2, 2 (1) : 1
+5 3, 1 (1) : 1
+5 4, 1 (1) : 1
+5 5, 1 (1) : 1
